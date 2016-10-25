@@ -1,0 +1,23 @@
+<h1>Lynxes</h1>
+<h3>Made for Patron Technology with love, by Craig Iturbe</h3>
+<div>
+  <row>
+    <h2>This is a Lynx:</h2>
+    <%=image_tag "lynx.jpg"%>
+  </row>
+</div>
+
+<h3>This is a Place for a New Link!</h3>
+<%= form_for @article do |f| %>
+Full Screensteps Link:
+<%= f.text_field :link, id: 'add_box' %>
+<%= f.submit "Add Link", class: "btn btn-primary" %>
+<% end %>
+<br><br>
+
+<h3>These are Your Links!</h3>
+<ol>
+<% @articles.each do |article| %>
+<li><%= article.title %> - <a href = '<%= article.link %>' target="_blank"><%= article.link %></a></li>
+<% end %>
+</ol>
